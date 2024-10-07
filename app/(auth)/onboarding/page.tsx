@@ -7,12 +7,7 @@ async function Page() {
     if (!user) return null; // to avoid typescript warnings
 
     const userInfo = {
-    _id: "mockId",
-    username: "mockUsername",
-    name: "Mock Name",
-    bio: "Mock Bio",
-    image: "mockImageUrl",
-    onboarded: false, // mock onboarded state
+    
     }; // mock object
     
     const userData = {
