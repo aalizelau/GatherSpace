@@ -16,29 +16,161 @@ module.exports = {
   		}
   	},
   	fontSize: {
-  		'heading1-bold': [\\n        "36px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "700",\\n        },\\n      ],
-  		'heading1-semibold': [\\n        "36px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "600",\\n        },\\n      ],
-  		'heading2-bold': [\\n        "30px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "700",\\n        },\\n      ],
-  		'heading2-semibold': [\\n        "30px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "600",\\n        },\\n      ],
-  		'heading3-bold': [\\n        "24px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "700",\\n        },\\n      ],
-  		'heading4-medium': [\\n        "20px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "500",\\n        },\\n      ],
-  		'body-bold': [\\n        "18px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "700",\\n        },\\n      ],
-  		'body-semibold': [\\n        "18px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "600",\\n        },\\n      ],
-  		'body-medium': [\\n        "18px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "500",\\n        },\\n      ],
-  		'body-normal': [\\n        "18px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "400",\\n        },\\n      ],
-  		'body1-bold': [\\n        "18px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "700",\\n        },\\n      ],
-  		'base-regular': [\\n        "16px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "400",\\n        },\\n      ],
-  		'base-medium': [\\n        "16px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "500",\\n        },\\n      ],
-  		'base-semibold': [\\n        "16px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "600",\\n        },\\n      ],
-  		'base1-semibold': [\\n        "16px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "600",\\n        },\\n      ],
-  		'small-regular': [\\n        "14px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "400",\\n        },\\n      ],
-  		'small-medium': [\\n        "14px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "500",\\n        },\\n      ],
-  		'small-semibold': [\\n        "14px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "600",\\n        },\\n      ],
-  		'subtle-medium': [\\n        "12px",\\n        {\\n          lineHeight: "16px",\\n          fontWeight: "500",\\n        },\\n      ],
-  		'subtle-semibold': [\\n        "12px",\\n        {\\n          lineHeight: "16px",\\n          fontWeight: "600",\\n        },\\n      ],
-  		'tiny-medium': [\\n        "10px",\\n        {\\n          lineHeight: "140%",\\n          fontWeight: "500",\\n        },\\n      ],
-  		'x-small-semibold': [\\n        "7px",\\n        {\\n          lineHeight: "9.318px",\\n          fontWeight: "600",\\n        },\\n      ]
-  	},
+		'heading1-bold': [
+		  "36px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "700",
+		  },
+		],
+		'heading1-semibold': [
+		  "36px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "600",
+		  },
+		],
+		'heading2-bold': [
+		  "30px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "700",
+		  },
+		],
+		'heading2-semibold': [
+		  "30px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "600",
+		  },
+		],
+		'heading3-bold': [
+		  "24px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "700",
+		  },
+		],
+		'heading4-medium': [
+		  "20px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "500",
+		  },
+		],
+		'body-bold': [
+		  "18px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "700",
+		  },
+		],
+		'body-semibold': [
+		  "18px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "600",
+		  },
+		],
+		'body-medium': [
+		  "18px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "500",
+		  },
+		],
+		'body-normal': [
+		  "18px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "400",
+		  },
+		],
+		'body1-bold': [
+		  "18px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "700",
+		  },
+		],
+		'base-regular': [
+		  "16px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "400",
+		  },
+		],
+		'base-medium': [
+		  "16px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "500",
+		  },
+		],
+		'base-semibold': [
+		  "16px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "600",
+		  },
+		],
+		'base1-semibold': [
+		  "16px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "600",
+		  },
+		],
+		'small-regular': [
+		  "14px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "400",
+		  },
+		],
+		'small-medium': [
+		  "14px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "500",
+		  },
+		],
+		'small-semibold': [
+		  "14px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "600",
+		  },
+		],
+		'subtle-medium': [
+		  "12px",
+		  {
+			lineHeight: "16px",
+			fontWeight: "500",
+		  },
+		],
+		'subtle-semibold': [
+		  "12px",
+		  {
+			lineHeight: "16px",
+			fontWeight: "600",
+		  },
+		],
+		'tiny-medium': [
+		  "10px",
+		  {
+			lineHeight: "140%",
+			fontWeight: "500",
+		  },
+		],
+		'x-small-semibold': [
+		  "7px",
+		  {
+			lineHeight: "9.318px",
+			fontWeight: "600",
+		  },
+		],
+	  },
   	extend: {
   		colors: {
   			'primary-500': '#877EFF',
@@ -133,5 +265,9 @@ module.exports = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"), // Load the plugin correctly
+    require("tailwindcss"), // Tailwind CSS
+    require("autoprefixer"), // Autoprefixer
+  ],
 };
