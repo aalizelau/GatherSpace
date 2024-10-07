@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs/server";
 
-// import Comment from "@/components/forms/Comment";
+import Comment from "@/components/forms/Comment";
 import ThreadCard from "@/components/cards/ThreadCard";
 
 import { fetchUser } from "@/lib/actions/user.actions";
@@ -36,11 +36,11 @@ async function page({ params }: { params: { id: string } }) {
       </div>
 
       <div className='mt-7'>
-        {/* <Comment
+        <Comment
           threadId={params.id}
           currentUserImg={user.imageUrl}
           currentUserId={JSON.stringify(userInfo._id)}
-        /> */}
+        />
       </div>
 
       <div className='mt-10'>
