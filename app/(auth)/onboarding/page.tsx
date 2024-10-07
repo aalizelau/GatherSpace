@@ -1,7 +1,7 @@
 async function Page(){
     return (
         <main>
-            <h1 className="head-text">Signin</h1>
+            <h1 className="head-text">Omboarding</h1>
         </main>
     )
 }
