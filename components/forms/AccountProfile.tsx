@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 import { UserValidation } from "@/lib/validations/user";
+import { updateUser } from "@/lib/actions/user.actions";
 
 import { useUploadThing } from "@/lib/uploadthing";
 import { isBase64Image } from "@/lib/utils";
@@ -37,6 +38,8 @@ interface Props {
   }
 
 const AccountProfile =({ user, btnTitle }: Props) => {
+    const router = useRouter();
+    const pathname = usePathname();
     const { startUpload } = useUploadThing("media");
     const [files, setFiles] = useState<File[]>([]);
 
@@ -62,8 +65,21 @@ const AccountProfile =({ user, btnTitle }: Props) => {
               values.profile_photo = imgRes[0].url;
             }
         }
-
-    };
+        await updateUser({
+            name: values.name,
+            path: pathname,
+            username: values.username,
+            userId: user.id,
+            bio: values.bio,
+            image: values.profile_photo,
+          });
+      
+          if (pathname === "/profile/edit") {
+            router.back();
+          } else {
+            router.push("/");
+          }
+        };
 
     const handleImage = (
         e: ChangeEvent<HTMLInputElement>,
