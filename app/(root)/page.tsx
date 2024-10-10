@@ -15,6 +15,7 @@ export default async function Home(){
   const userInfo = await fetchUser(user.id);
   if (!userInfo?.onboarded) redirect("/onboarding");
   const result = await fetchPosts(1,30);
+  console.log(result.posts)
   
   return (
     <>
@@ -33,7 +34,7 @@ export default async function Home(){
                 parentId={post.parentId}
                 content={post.text}
                 author={post.author}
-                // community={post.community}
+                community={post.community}
                 createdAt={post.createdAt}
                 comments={post.children}
               />
