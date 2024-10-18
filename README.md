@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GatherSpace 
+
+A social media platform built with Next.js, inspired by platforms like Twitter and Meta's Threads. It allows users to create and interact with posts, join communities, and engage with other users.
+
+## Features
+
+- User authentication and profile management
+- Create, view, and comment on threads
+- Community creation and management
+- Real-time updates and interactions
+- Responsive design for various device sizes
+- Dark theme support
+- File uploads for user avatars and thread attachments
+- Search functionality for users and communities
+- Activity tracking for user interactions
+
+## Technologies Used
+
+- Next.js 14
+- React 18
+- TypeScript
+- MongoDB with Mongoose
+- Clerk for authentication
+- Tailwind CSS for styling
+- Uploadthing for file uploads
+- Zod for schema validation
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Set up environment variables (see `.env.example` for required variables)
+4. Run the development server:
+   ```
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `app/`: Next.js app directory containing pages and API routes
+- `components/`: Reusable React components
+- `lib/`: Utility functions, database models, and server actions
+- `public/`: Static assets
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key Components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ThreadCard: Displays individual thread posts
+- UserCard: Shows user information in a card format
+- CommunityCard: Displays community information
+- PostThread: Form for creating new threads
+- ThreadsTab: Tab component for displaying user or community threads
 
-## Learn More
+## Server Actions
 
-To learn more about Next.js, take a look at the following resources:
+Server actions are located in the `lib/actions/` directory:
+- `user.actions.ts`: User-related actions (fetch user, update profile, etc.)
+- `thread.actions.ts`: Thread-related actions (create, fetch, comment, etc.)
+- `community.actions.ts`: Community-related actions (create, fetch, manage members, etc.)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Database Models
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+MongoDB models are defined in `lib/models/`:
+- `user.model.ts`: User schema
+- `thread.model.ts`: Thread schema
+- `community.model.ts`: Community schema
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
