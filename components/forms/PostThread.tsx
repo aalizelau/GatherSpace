@@ -30,6 +30,8 @@ function PostThread({ userId }: Props) {
 
   const { organization } = useOrganization();
 
+  console.log(organization)
+
   const form = useForm<z.infer<typeof ThreadValidation>>({
     resolver: zodResolver(ThreadValidation),
     defaultValues: {
@@ -47,12 +49,12 @@ function PostThread({ userId }: Props) {
         path: pathname,
       });
 
-      if (createdThread) {
-        // Generate AI comment
-        await generateAIComment(createdThread._id.toString(), values.thread);
-      }
+  //     if (createdThread) {
+  //       // Generate AI comment
+  //       await generateAIComment(createdThread._id.toString(), values.thread);
+  //     }
 
-      router.push(`/thread/${createdThread._id.toString()}`);
+  //     router.push(`/thread/${createdThread._id.toString()}`);
     } catch (error) {
       console.error("Error creating thread or generating AI comment:", error);
       // Handle error (e.g., show error message to user)

@@ -7,6 +7,7 @@ import { connectToDB } from "../mongoose";
 import User from "../models/user.model";
 import Thread from "../models/thread.model";
 import Community from "../models/community.model";
+import {getRandomBot} from "../utils";
 
 export async function fetchPosts(pageNumber = 1, pageSize = 20) {
   connectToDB();
@@ -244,6 +245,7 @@ export async function deleteThread(id: string, path: string): Promise<void> {
 
 export async function generateAIComment(threadId: string, threadText: string) {
   try {
+    const selectedBot = getRandomBot(); 
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -256,7 +258,7 @@ export async function generateAIComment(threadId: string, threadText: string) {
         messages: [
           {
             role: 'system',
-            content: 'You are an AI designed to roast like a harsh TV show judge. Your comments should feel like sharp critiques, keep it under 30 words.'
+            content: selectedBot.prompt
           },
           {
             role: 'user',
@@ -270,14 +272,14 @@ export async function generateAIComment(threadId: string, threadText: string) {
     const data = await response.json();
 
     // Log the AI's response
-    const aiCommentText = data.choices[0].message.content; // Adjust based on the API response structure
+    const aiCommentText = data.choices[0].message.content; 
     console.log("Generated AI Comment:", aiCommentText);
 
     await addCommentToThread(
       threadId,
       aiCommentText,
-      '670407df3ddfa8a73df6c524', // Replace with your actual AI user ID
-      '/thread/' + threadId // Assuming this is the path to the thread
+      selectedBot.userId,
+      '/thread/' + threadId 
     );
 
   } catch (error) {

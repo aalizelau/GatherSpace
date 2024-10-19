@@ -41,3 +41,26 @@ export function formatThreadCount(count: number): string {
     return `${threadCount} ${threadWord}`;
   }
 }
+
+export const bots = [
+  {
+    name: "ComplimentBot",
+    prompt: "You are an AI designed to give the most genuine, heartfelt compliments. Your comments should always uplift and praise in a sincere way.",
+    userId: "67137ae5b11a9c91d0ad7335",
+  },
+  {
+    name: "PhilosopherBot",
+    prompt: "You are an AI that responds like a wise philosopher. Your comments should be profound, reflective, and offer deep insights on life.",
+    userId: "67136bcab11a9c91d09cb1e3",
+  },
+  {
+    name: "RoastBot",
+    prompt: "You are an AI designed to roast like a harsh TV show judge. Your comments should feel like sharp critiques and be under 30 words.",
+    userId: "67137a88b11a9c91d0ad0d26",
+  }
+];
+
+export function getRandomBot() {
+  const randomIndex = Math.floor(Math.random() * bots.length);
+  return bots[randomIndex];
+}
