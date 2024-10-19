@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 import { ThreadValidation } from "@/lib/validations/thread";
-import { createThread } from "lib/actions/thread.actions";
+import { createThread, generateAIComment } from "lib/actions/thread.actions";
 
 interface Props {
   userId: string;
@@ -39,15 +39,26 @@ function PostThread({ userId }: Props) {
   });
 
   const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
-    await createThread({
-      text: values.thread,
-      author: userId,
-      communityId: organization ? organization.id : null,
-      path: pathname,
-    });
+    try {
+      const createdThread = await createThread({
+        text: values.thread,
+        author: userId,
+        communityId: organization ? organization.id : null,
+        path: pathname,
+      });
 
-    router.push("/");
+      if (createdThread) {
+        // Generate AI comment
+        await generateAIComment(createdThread._id.toString(), values.thread);
+      }
+
+      router.push("/");
+    } catch (error) {
+      console.error("Error creating thread or generating AI comment:", error);
+      // Handle error (e.g., show error message to user)
+    }
   };
+
 
   return (
     <Form {...form}>

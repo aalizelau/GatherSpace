@@ -71,19 +71,22 @@ export async function createThread({ text, author, communityId, path }: Params
       community: communityIdObject, // Assign communityId if provided, or leave it null for personal account
     });
 
-    // Update User model
+    /// Convert Mongoose object to plain JavaScript object
+    const plainThread = createdThread.toObject();
+
     await User.findByIdAndUpdate(author, {
-      $push: { threads: createdThread._id },
+      $push: { threads: plainThread._id },
     });
 
     if (communityIdObject) {
-      // Update Community model
-      await Community.findByIdAndUpdate(communityIdObject, {
-        $push: { threads: createdThread._id },
+      await Community.findByIdAndUpdate(communityIdObject._id, {
+        $push: { threads: plainThread._id },
       });
     }
 
     revalidatePath(path);
+
+    return plainThread; // Return the plain object
   } catch (error: any) {
     throw new Error(`Failed to create thread: ${error.message}`);
   }
@@ -236,5 +239,41 @@ export async function deleteThread(id: string, path: string): Promise<void> {
     revalidatePath(path);
   } catch (error: any) {
     throw new Error(`Failed to delete thread: ${error.message}`);
+  }
+}
+
+export async function generateAIComment(threadId: string, threadText: string) {
+  try {
+    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are an AI designed to roast like a harsh TV show judge. Your comments should feel like sharp critiques, keep it under 30 words.'
+          },
+          {
+            role: 'user',
+            content: `Generate a comment for: ${threadText}`
+          }
+        ],
+        temperature: 0.7,
+      }),
+    });
+
+    const data = await response.json();
+
+    // Log the AI's response
+    const aiCommentText = data.choices[0].message.content; // Adjust based on the API response structure
+    console.log("Generated AI Comment:", aiCommentText);
+
+  } catch (error) {
+    console.error("Error generating AI comment:", error);
   }
 }
