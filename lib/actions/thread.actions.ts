@@ -273,6 +273,13 @@ export async function generateAIComment(threadId: string, threadText: string) {
     const aiCommentText = data.choices[0].message.content; // Adjust based on the API response structure
     console.log("Generated AI Comment:", aiCommentText);
 
+    await addCommentToThread(
+      threadId,
+      aiCommentText,
+      '670407df3ddfa8a73df6c524', // Replace with your actual AI user ID
+      '/thread/' + threadId // Assuming this is the path to the thread
+    );
+
   } catch (error) {
     console.error("Error generating AI comment:", error);
   }
