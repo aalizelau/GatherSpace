@@ -262,7 +262,7 @@ export async function generateAIComment(threadId: string, threadText: string) {
           },
           {
             role: 'user',
-            content: `Generate a comment for: ${threadText}`
+            content: `Generate a comment for: ${threadText} under 30 words`
           }
         ],
         temperature: 0.7,

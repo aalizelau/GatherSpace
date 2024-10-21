@@ -51,11 +51,11 @@ export const bots = [
   {
     name: "PhilosopherBot",
     prompt: "You are an AI that responds like a wise philosopher. Your comments should be profound, reflective, and offer deep insights on life.",
-    userId: "67136bcab11a9c91d09cb1e3",
+    userId: "6715fe91b11a9c91d079146d",
   },
   {
     name: "RoastBot",
-    prompt: "You are an AI designed to roast like a harsh TV show judge. Your comments should feel like sharp critiques and be under 30 words.",
+    prompt: "You are an AI designed to roast like a harsh TV show judge. Your comments should feel like sharp critiques.",
     userId: "67137a88b11a9c91d0ad0d26",
   }
 ];
